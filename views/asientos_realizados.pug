@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 #{title}
+    ul.list-group
+      each asiento, i in asientos
+        li.list-group-item
+          table.table
+            thead
+              th Fecha
+              th Concepto Debe
+              th Concepto Haber
+              th Debe
+              th Haber
+            tbody
+              tr
+                th(scope='row')= asiento.fecha
+                td= asiento.cuentaDebe 
+                td= asiento.cuentaHaber
+                td= asiento.debe
+                td= asiento.haber

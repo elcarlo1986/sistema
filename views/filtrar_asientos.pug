@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 #{title}
+    br
+    form(method='POST', action='/asientos/filtrar')
+      #form-group
+        label Cuenta a Filtrar
+        input.form-control(name='cuenta', type='text')
+      br
+      input.btn.btn-primary(type='submit', value='Filtrar')

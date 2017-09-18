@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  
+  section.jumbotron.text-center
+    .container
+      h1.jumbotron-heading #{title}
+  
+  section#contact.content-section.text-center
+    .contact-section
+      .container
+        h2 Contactanos
+        p ¡Envianos un mensaje!
+        .row
+          .col-md-8.col-md-offset-2
+            form.form-horizontal
+              .form-group
+                label(for='exampleInputName2') Nombre
+                input#exampleInputName2.form-control(type='text', placeholder='Juan Perez')
+              .form-group
+                label(for='exampleInputEmail2') Email
+                input#exampleInputEmail2.form-control(type='email', placeholder='juan.perez@example.com')
+              .form-group
+                label(for='exampleInputText') Tu mensaje
+                textarea.form-control(placeholder='Mensaje')
+              button.btn.btn-primary(type='submit') Enviar Mensaje

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 Inicio de Sesion
+    br
+    form(method='POST', action='/usuarios/login')
+      #form-group
+        label Nombre De Usuario
+        input.form-control(name='username', type='text')
+      #form-group
+        label Contraseña
+        input.form-control(name='password', type='password')
+      br
+      input.btn.btn-primary(type='submit', value='¡Iniciar Sesion!')

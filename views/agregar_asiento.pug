@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1 #{title}
+    br
+    form(method='POST', action='/asientos/agregar')
+      #form-group
+        label Fecha
+        input.form-control(name='fecha', type='text')
+      #form-group
+        label Cuenta Debe
+        input.form-control(name='cuentaDebe', type='text')
+      #form-group
+        label Cuenta Haber
+        input.form-control(name='cuentaHaber', type='text')
+      #form-group
+        label Debe
+        input.form-control(name='debe', type='text')
+      #form-group
+        label Haber
+        input.form-control(name='haber', type='text')
+
+      br
+      input.btn.btn-primary(type='submit', value='Agregar Asiento')

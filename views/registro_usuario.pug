@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1 #{title}
+    br
+    form(method='POST', action='/usuarios/registrar')
+      #form-group
+        label Nombre
+        input.form-control(name='name', type='text')
+      #form-group
+        label E-mail
+        input.form-control(name='email', type='text')
+      #form-group
+        label Nombre De Usuario
+        input.form-control(name='username', type='text')
+      #form-group
+        label Contraseña
+        input.form-control(name='password', type='password')
+      #form-group
+        label Confirmar Contraseña
+        input.form-control(name='password2', type='password')  
+      br
+      input.btn.btn-primary(type='submit', value='¡Registrarse!')
