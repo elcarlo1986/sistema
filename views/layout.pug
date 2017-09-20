@@ -17,12 +17,13 @@ html
           ul.nav.navbar-nav
             li.active
               a(href='/') Inicio
-            li
-              a(href='/asientos/realizados') Asientos Realizados
-            li
-              a(href='/asientos/agregar') Agregar Asiento
-            li
-              a(href='/asientos/filtrar') Filtrar Cuentas﻿
+            if user
+              li
+                a(href='/asientos/realizados') Asientos Realizados
+              li
+                a(href='/asientos/agregar') Agregar Asiento
+              li
+                a(href='/asientos/filtrar') Filtrar Cuentas﻿
           ul.nav.navbar-nav.navbar-right
             if user
               li 

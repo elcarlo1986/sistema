@@ -5,7 +5,7 @@ const router = express.Router();
 let Asiento = require('../models/asiento');
 
 // Ruta Agregar GET
-router.get('/agregar', function(req, res){
+router.get('/agregar', ensureAuthenticated, function(req, res){
   res.render('agregar_asiento', {
     title: 'Agregar Asiento'
   });
@@ -55,7 +55,7 @@ router.post('/agregar', function(req, res){
 
 
 // Ruta Asiento Realizados
-router.get('/realizados', function(req, res){
+router.get('/realizados', ensureAuthenticated, function(req, res){
   Asiento.find({}, function(err, asientos){
     if (err){
       console.log(err);
@@ -70,7 +70,7 @@ router.get('/realizados', function(req, res){
 
 
 // Ruta Filtrar Asiento
-router.get('/filtrar', function(req, res){
+router.get('/filtrar', ensureAuthenticated, function(req, res){
   res.render('filtrar_asientos', {
     title: 'Filtrar Por Cuentas',
   });
@@ -93,6 +93,16 @@ router.post('/filtrar', function(req, res){
     res.redirect('/');
   }
 });
+
+// Control de Acceso
+function ensureAuthenticated(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }else {
+    req.flash('danger', 'Por favor inicie sesion');
+    res.redirect('/usuarios/login');
+  }
+}
 
 
 module.exports = router;

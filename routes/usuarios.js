@@ -35,7 +35,7 @@ router.post('/registrar', function(req, res){
       errors: errors
     });
   }else{
-    let nuevoUsuario = new User({
+    let nuevoUsuario = new Usuario({
       name: name,
       email: email,
       username: username,
@@ -43,7 +43,7 @@ router.post('/registrar', function(req, res){
     });
 
     bcrypt.genSalt(10, function(err, salt){
-      bcrypt.hash(nuevoUsuario.password, salt, function(err, hasg){
+      bcrypt.hash(nuevoUsuario.password, salt, function(err, hash){
         if(err){
           console.log(err);
         }
@@ -54,7 +54,7 @@ router.post('/registrar', function(req, res){
             return;
           }else{
             req.flash('success', 'Usuario creado y puede iniciar sesion');
-            req.redirect('/usuarios/login');
+            res.redirect('/usuarios/login');
           }
         });
       });
