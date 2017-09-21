@@ -3,22 +3,62 @@ extends layout
 block content
     h1 #{title}
     br
-    form(method='POST', action='/asientos/agregar')
-      #form-group
-        label Fecha
-        input.form-control(name='fecha', type='text')
-      #form-group
-        label Cuenta Debe
-        input.form-control(name='cuentaDebe', type='text')
-      #form-group
-        label Cuenta Haber
-        input.form-control(name='cuentaHaber', type='text')
-      #form-group
-        label Debe
-        input.form-control(name='debe', type='text')
-      #form-group
-        label Haber
-        input.form-control(name='haber', type='text')
-
+    ul#myTabs.nav.nav-tabs.nav-justified
+      li.active(role='presentation')
+        a(href='#fecha', aria-controls='home', role='tab', data-toggle='tab') Fecha
+      li(role='presentation')
+        a(href='#conceptoDebe', aria-controls='home', role='tab', data-toggle='tab') Concepto Debe
+      li(role='presentation')
+        a(href='#conceptoHaber', aria-controls='home', role='tab', data-toggle='tab') Concepto Haber
+    
+    .tab-content
       br
-      input.btn.btn-primary(type='submit', value='Agregar Asiento')
+      #fecha.tab-pane.active(role='tabpanel1')
+        label Ingrese la fecha
+        input.form-control(type='text', name='fecha')
+      #conceptoDebe.tab-pane(role='tabpanel1')
+        .row
+          .col.col-md-6
+            label Ingrese el concepto debe
+            #fldDebe1.fld_wrap
+              .input-group
+                input.form-control(type='text', name='conceptoDebe')
+                span.input-group-btn
+                  button.btn.btn-success.add_button(fldnum='1', type='button')
+                    span.glyphicon.glyphicon-plus 
+      
+          .col.col-md-6
+            label Ingrese el monto debe
+            #fldDebe2.fld_wrap
+              .input-group
+                input.form-control(type='text', name='conceptoHaber')
+                span.input-group-btn
+                  button.btn.btn-success.add_button(fldnum='2', type='button')
+                    span.glyphicon.glyphicon-plus
+          br
+        br
+        span Presione + para agregar cuentas
+      
+      #conceptoHaber.tab-pane(role='tabpanel1')
+        .row
+          .col.col-md-6
+            label Ingrese el concepto haber
+            #fldHaber1.fld_wrap2
+              .input-group
+                input.form-control(type='text', name='conceptoDebe')
+                span.input-group-btn
+                  button.btn.btn-success.add_button2(fldnum2='1', type='button')
+                    span.glyphicon.glyphicon-plus 
+      
+          .col.col-md-6
+            label Ingrese el monto haber
+            #fldHaber2.fld_wrap2
+              .input-group
+                input.form-control(type='text', name='conceptoHaber')
+                span.input-group-btn
+                  button.btn.btn-success.add_button2(fldnum2='2', type='button')
+                    span.glyphicon.glyphicon-plus
+          br
+        br
+        span Presione + para agregar cuentas
+      
